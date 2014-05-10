@@ -98,6 +98,7 @@ public class MyManor {
 		cobblestoneHammer = new Hammer("cobblestone_hammer",0F,ToolMaterial.WOOD, null);
 		RegisterHelper.registerItem(cobblestoneHammer);
 		
+		
 	}
 	
     @EventHandler
