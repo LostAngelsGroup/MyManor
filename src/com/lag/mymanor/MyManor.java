@@ -94,7 +94,8 @@ public class MyManor {
 		//nechapu posledni hodnotu
 		ironHammer = new Hammer("iron_hammer", 0F, ToolMaterial.IRON, null);
 		RegisterHelper.registerItem(ironHammer);
-		//nechapu posledni hodnotu
+		
+		//nechapu posledni hodnotu, asi neco jako set?
 		cobblestoneHammer = new Hammer("cobblestone_hammer",0F,ToolMaterial.WOOD, null);
 		RegisterHelper.registerItem(cobblestoneHammer);
 		
