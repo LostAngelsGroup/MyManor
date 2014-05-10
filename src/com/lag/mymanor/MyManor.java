@@ -53,7 +53,7 @@ public class MyManor {
 	public static Item crystalSmallCombined;
 	public static Item crystalNormalCombined;
 	public static Item crystalLargeCombinet;
-	public static Item crystalEnourmousCombinet;
+	public static Item crystalEnourmousCombined;
 	
 	//tady konci nepouzity
 	
