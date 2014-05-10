@@ -94,7 +94,7 @@ public class MyManor {
 		//nechapu posledni hodnotu
 		ironHammer = new Hammer("iron_hammer", 0F, ToolMaterial.IRON, null);
 		RegisterHelper.registerItem(ironHammer);
-		
+		//nechapu posledni hodnotu
 		cobblestoneHammer = new Hammer("cobblestone_hammer",0F,ToolMaterial.WOOD, null);
 		RegisterHelper.registerItem(cobblestoneHammer);
 	}
