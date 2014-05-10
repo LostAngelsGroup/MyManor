@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mymanor",
+  "name": "MyManor Mod",
+  "description": "Where Magic & Technology connect their powers...",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["LAGIdiot","LAGSkarrgan"],
+  "credits": "Belongs only to LAG",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

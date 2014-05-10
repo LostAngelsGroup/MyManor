@@ -1,0 +1,80 @@
+itemGroup.tabMyManorBlocks=My Manor - Blocks
+itemGroup.tabMyManorItems=My Manor - Items
+
+tile.ore.COPPER.name=Copper Ore
+tile.ore.LEAD.name=Lead Ore
+tile.ore.SILVER.name=Silver Ore
+tile.ore.TIN.name=Tin Ore
+
+tile.crystal_ore.AIR.name=Air Crystal Ore
+tile.crystal_ore.DARKNESS.name=Darkness Crystal Ore
+tile.crystal_ore.EARTH.name=Earth Crystal Ore
+tile.crystal_ore.FIRE.name=Fire Crystal Ore
+tile.crystal_ore.LIGHT.name=Light Crystal Ore
+tile.crystal_ore.WATER.name=Water Crystal Ore
+
+tile.crystal_ore_large.AIR.name=Air Crystal Ore Large
+tile.crystal_ore_large.DARKNESS.name=Darkness Crystal Ore Large
+tile.crystal_ore_large.EARTH.name=Earth Crystal Ore Large
+tile.crystal_ore_large.FIRE.name=Fire Crystal Ore Large
+tile.crystal_ore_large.LIGHT.name=Light Crystal Ore Large
+tile.crystal_ore_large.WATER.name=Water Crystal Ore Large
+
+tile.crystal_block.AIR.name=Crystal Air Block
+tile.crystal_block.DARKNESS.name=Crystal Darkness Block
+tile.crystal_block.EARTH.name=Crystal Earth Block
+tile.crystal_block.FIRE.name=Crystal Fire Block
+tile.crystal_block.LIGHT.name=Crystal Light Block
+tile.crystal_block.WATER.name=Crystal Water Block
+
+tile.crystal_sand_low.AIR.name=Crystal Sand Light
+tile.crystal_sand_low.DARKNESS.name=Crystal Sand Light
+tile.crystal_sand_low.EARTH.name=Crystal Sand Light
+tile.crystal_sand_low.FIRE.name=Crystal Sand Light
+tile.crystal_sand_low.LIGHT.name=Crystal Sand Light
+tile.crystal_sand_low.WATER.name=Crystal Sand Light
+
+tile.crystal_sand_normal.AIR.name=Crystal Sand Normal
+tile.crystal_sand_normal.DARKNESS.name=Crystal Sand Normal
+tile.crystal_sand_normal.EARTH.name=Crystal Sand Normal
+tile.crystal_sand_normal.FIRE.name=Crystal Sand Normal
+tile.crystal_sand_normal.LIGHT.name=Crystal Sand Normal
+tile.crystal_sand_normal.WATER.name=Crystal Sand Normal
+
+tile.crystal_sand_high.AIR.name=Crystal Sand High
+tile.crystal_sand_high.DARKNESS.name=Crystal Sand High
+tile.crystal_sand_high.EARTH.name=Crystal Sand High
+tile.crystal_sand_high.FIRE.name=Crystal Sand High
+tile.crystal_sand_high.LIGHT.name=Crystal Sand High
+tile.crystal_sand_high.WATER.name=Crystal Sand High
+
+tile.crystal_glass_low.AIR.name=Crystal Glass Light
+
+tile.magic_infuse_ground.GroundAir.name
+tile.magic_infuse_ground.GroundDarkness.name
+tile.magic_infuse_ground.GroundEarth.name
+tile.magic_infuse_ground.GroundFire.name
+tile.magic_infuse_ground.GroundLight.name
+tile.magic_infuse_ground.GroundWater.name
+
+item.crystal_raw.AIR.name=Air Crystal Raw
+item.crystal_raw.DARKNESS.name=Darkness Crystal Raw
+item.crystal_raw.EARTH.name=Earth Crystal Raw
+item.crystal_raw.FIRE.name=Fire Crystal Raw
+item.crystal_raw.LIGHT.name=Light Crystal Raw
+item.crystal_raw.WATER.name=Water Crystal Raw
+
+item.crystal_raw_large.AIR.name=Air Crystal Raw Large
+item.crystal_raw_large.DARKNESS.name=Darkness Crystal Raw Large
+item.crystal_raw_large.EARTH.name=Earth Crystal Raw Large
+item.crystal_raw_large.FIRE.name=Fire Crystal Raw Large
+item.crystal_raw_large.LIGHT.name=Light Crystal Raw Large
+item.crystal_raw_large.WATER.name=Water Crystal Raw Large
+
+item.crystal_dust.AIR.name=Air Dust
+
+item.crystal_sword.name=Rainbow Sword
+item.crystal_axe.name=Crystal Axe
+item.crystal_pickaxe.name=Crystal Pickaxe
+item.crystal_shovel.name=Crystal Shovel
+item.crystal_hoe.name=Crystal Hoe
