@@ -1,1 +1,1 @@
-Minecraft Mód MyManor
+Minecraft Mod MyManor
