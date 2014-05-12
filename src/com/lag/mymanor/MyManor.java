@@ -20,6 +20,7 @@ import com.lag.mymanor.items.tools.Hoe;
 import com.lag.mymanor.items.tools.Pickaxe;
 import com.lag.mymanor.items.tools.Shovel;
 import com.lag.mymanor.items.tools.Sword;
+import com.lag.mymanor.world.MGenerator;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -99,7 +100,7 @@ public class MyManor {
 		cobblestoneHammer = new Hammer("cobblestone_hammer",0F,ToolMaterial.WOOD, null);
 		RegisterHelper.registerItem(cobblestoneHammer);
 		
-		
+		GameRegistry.registerWorldGenerator(new MGenerator(), 10);
 	}
 	
     @EventHandler
