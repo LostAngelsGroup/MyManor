@@ -1,0 +1,31 @@
+buildscript {
+    repositories{
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies{
+        classpath "net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT"
+    }
+}
+
+apply plugin: "forge"
+
+sourceSets
+{
+    main
+    {
+       java { srcDirs = ["$projectDir/src"] }
+	   resources { srcDirs = ["$projectDir/resources"] }
+    }
+}
+group= "com.lag.mymanor"
+archivesBaseName = "1.7.2 - MyManor"
+version = "0.0.1.0"
+minecraft.version = "1.7.2-10.12.1.1061"
