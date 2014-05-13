@@ -7,6 +7,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
+import com.lag.mymanor.client.interfaces.GuiHandler;
 import com.lag.mymanor.help.ConfigHandler;
 import com.lag.mymanor.help.Reference;
 import com.lag.mymanor.help.RegisterHelper;
@@ -111,6 +112,8 @@ public class MyManor {
     	MSmeltingRecipes.initSmeltingRecipes();
     	//tileEntities
     	MBlocks.initTileEntities();
+    	//gui handler
+    	new GuiHandler();
     	
     	//recepty jsou vadny vyuzivaji totiz crystalRaw
     	GameRegistry.addShapedRecipe(new ItemStack(crystalSword, 1), new Object[]{" X ", " X ", " I ", 'X', MItems.crystalRaw, 'I', Items.stick});

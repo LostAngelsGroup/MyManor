@@ -3,6 +3,7 @@ package com.lag.mymanor.init;
 import net.minecraft.block.Block;
 
 import com.lag.mymanor.blocks.CrystalBlock;
+import com.lag.mymanor.blocks.CrystalCraftingTable;
 import com.lag.mymanor.blocks.CrystalGlass;
 import com.lag.mymanor.blocks.CrystalOre;
 import com.lag.mymanor.blocks.CrystalOreLarge;
@@ -18,6 +19,7 @@ import com.lag.mymanor.itemBlocks.ItemBlock_CrystalOre;
 import com.lag.mymanor.itemBlocks.ItemBlock_CrystalSand;
 import com.lag.mymanor.itemBlocks.ItemBlock_MagicInfuseGround;
 import com.lag.mymanor.itemBlocks.ItemBlock_Ore;
+import com.lag.mymanor.tileEntities.TileEntity_CrystalCraftingTable;
 import com.lag.mymanor.tileEntities.TileEntity_S_ConnectedGlass;
 
 public class MBlocks {
@@ -42,6 +44,8 @@ public class MBlocks {
 	public static Block blockCrystalEnormous;
 	
 	public static Block magicInfuseGround;
+	
+	public static Block crystalCraftingTable;
 	
 	//test
 	public static Block connectedTextureGlass;
@@ -103,6 +107,9 @@ public class MBlocks {
 			RegisterHelper.registerBlock(magicInfuseGround, ItemBlock_MagicInfuseGround.class);
 		}
 		
+		crystalCraftingTable = new CrystalCraftingTable("crystal_crafting_table");
+		RegisterHelper.registerBlock(crystalCraftingTable);
+		
 		//test
 		connectedTextureGlass = new S_ConnectedGlass("s_glass");
 		RegisterHelper.registerBlock(connectedTextureGlass);
@@ -111,5 +118,6 @@ public class MBlocks {
 	public static void initTileEntities(){
 		//test
 		RegisterHelper.registerTileEntity("s_glass", TileEntity_S_ConnectedGlass.class);
+		RegisterHelper.registerTileEntity("tileEntity_crystal_crafting_table", TileEntity_CrystalCraftingTable.class);
 	}
 }

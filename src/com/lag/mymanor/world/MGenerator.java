@@ -14,8 +14,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class MGenerator implements IWorldGenerator{
 
-	public void generate(Random random, int chunkX, int chunkZ, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId){
 			case 0:{
 				generateOverworld(random, chunkX*16, chunkZ*16, world);
@@ -44,22 +43,37 @@ public class MGenerator implements IWorldGenerator{
 	}
 	//overworld
 	private void generateOverworld(Random random, int chunkX, int chunkZ, World world) {
-		for(int i = 0; i <6; i++){
+		for(int i = 0; i < 6; i++){
 			//oreCrystal
-			spawnOre(MBlocks.oreCrystal, i, world, random, chunkX, chunkZ, 3, 6, 10, 60);
+			spawnOre(MBlocks.oreCrystal, i, world, random, chunkX, chunkZ, 18, 3, 6, 10, 80);
 			//oreCrystalLage
-			spawnOre(MBlocks.oreCrystalLarge, i, world, random, chunkX, chunkZ, 2, 5, 10, 60);
+			spawnOre(MBlocks.oreCrystalLarge, i, world, random, chunkX, chunkZ, 15, 2, 5, 10, 80);
 		}
 		for(int i = 0; i < 4; i++){
-			spawnOre(MBlocks.ore, i, world, random, chunkX, chunkZ, 2, 3, 20, 80);
+			spawnOre(MBlocks.ore, i, world, random, chunkX, chunkZ, 20, 2, 3, 20, 100);
+		}
+		
+		for(int i = 0; i < 6; i++){
+			spawnCrystalSand(MBlocks.crystalSandNormal, i, world, random, chunkX, chunkZ, 3, 50, 80);
+		}
+	}
+	public void spawnCrystalSand(Block block, int meta, World world, Random random, int chunkX, int chunkZ, int interations, int minY, int maxY){
+		for(int i = 0; i < interations; i++){
+			int posX = chunkX + random.nextInt(16);
+			int posY = minY + random.nextInt(maxY - minY);
+			int posZ = chunkZ + random.nextInt(16);
+			new CrystalSandGen(block, meta).generate(world, random, posX, posY, posZ);
 		}
 	}
 	
-	public void spawnOre(Block block, int meta, World world, Random random, int chunkX, int chunkZ, int minVainSize, int maxVainSize, int minY, int maxY){
-		int posX = chunkX + random.nextInt(16);
-		int posY = minY + random.nextInt(maxY - minY);
-		int posZ = chunkZ + random.nextInt(16);
-		int vainSize = minVainSize + random.nextInt(maxVainSize - minVainSize);
-		new WorldGenMinable(block, meta, vainSize, Blocks.stone).generate(world, random, posX, posY, posZ);
+	public void spawnOre(Block block, int meta, World world, Random random, int chunkX, int chunkZ, int interations, int minVainSize, int maxVainSize, int minY, int maxY){
+		//interations = kolikrát se generátor pokusí generovat na 1 chunku
+		for(int i = 0; i < interations; i++){
+			int posX = chunkX + random.nextInt(16);
+			int posY = minY + random.nextInt(maxY - minY);
+			int posZ = chunkZ + random.nextInt(16);
+			int vainSize = minVainSize + random.nextInt(maxVainSize - minVainSize);
+			new WorldGenMinable(block, meta, vainSize, Blocks.stone).generate(world, random, posX, posY, posZ);
+		}
 	}
 }
