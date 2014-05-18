@@ -8,6 +8,7 @@ public class ConfigHandler {
 	
 	public static final String CATEGORY_DECORATION = "Decoration";
 	public static final String CATEGORY_MAGIC = "Magic";
+	public static final String CATEGORY_TOOLS = "Tools";
 	
 	//decoration
 	public static boolean SAND_AND_GLASS_LOW_VALUE;
@@ -31,6 +32,11 @@ public class ConfigHandler {
 	private static final String INFUSE_GROUND_NAME = "Infuse Ground";
 	private static final boolean INFUSE_GROUND_DEFAULT = true;
 	
+	//tools
+	public static boolean CRYSTAL_TOOLS_VALUE;
+	private static final String CRYSTAL_TOOLS_NAME = "Crystal Tools";
+	private static final boolean CRYSTAL_TOOLS_DEFAULT = true;
+	
 	public static void init(File file){
 		Configuration config = new Configuration(file);
 		
@@ -45,6 +51,10 @@ public class ConfigHandler {
 		
 		//magic
 		INFUSE_GROUND_VALUE = config.get(CATEGORY_MAGIC, INFUSE_GROUND_NAME, INFUSE_GROUND_DEFAULT).getBoolean(INFUSE_GROUND_DEFAULT);
+		
+		//tools
+		CRYSTAL_TOOLS_VALUE = config.get(CATEGORY_TOOLS, CRYSTAL_TOOLS_NAME, CRYSTAL_TOOLS_DEFAULT).getBoolean(CRYSTAL_TOOLS_DEFAULT);
+		
 		config.save();
 	}
 }

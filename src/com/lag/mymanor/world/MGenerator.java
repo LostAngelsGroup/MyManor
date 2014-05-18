@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.lag.mymanor.help.ConfigHandler;
 import com.lag.mymanor.init.MBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -52,10 +53,12 @@ public class MGenerator implements IWorldGenerator{
 		for(int i = 0; i < 4; i++){
 			spawnOre(MBlocks.ore, i, world, random, chunkX, chunkZ, 20, 2, 3, 20, 100);
 		}
-		
 		for(int i = 0; i < 6; i++){
-			spawnCrystalSand(MBlocks.crystalSandNormal, i, world, random, chunkX, chunkZ, 3, 50, 80);
+			if(ConfigHandler.SAND_AND_GLASS_HIGH_VALUE) spawnCrystalSand(MBlocks.crystalSandHigh, i, world, random, chunkX, chunkZ, 1, 50, 80);
+			if(ConfigHandler.SAND_AND_GLASS_NORMAL_VALUE) spawnCrystalSand(MBlocks.crystalSandNormal, i, world, random, chunkX, chunkZ, 3, 50, 80);
+			if(ConfigHandler.SAND_AND_GLASS_LOW_VALUE) spawnCrystalSand(MBlocks.crystalSandLow, i, world, random, chunkX, chunkZ, 5, 50, 80);
 		}
+		
 	}
 	public void spawnCrystalSand(Block block, int meta, World world, Random random, int chunkX, int chunkZ, int interations, int minY, int maxY){
 		for(int i = 0; i < interations; i++){
