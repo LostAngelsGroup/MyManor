@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 
 import com.lag.mymanor.MyManor;
 import com.lag.mymanor.help.Reference;
-import com.lag.mymanor.tileEntities.TileEntity_CrystalCraftingTable;
+import com.lag.mymanor.tileentities.TileEntity_CrystalCraftingTable;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

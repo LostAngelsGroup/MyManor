@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 import com.lag.mymanor.client.interfaces.slots.SlotCrystalRaw;
 import com.lag.mymanor.client.interfaces.slots.SlotNothing;
-import com.lag.mymanor.tileEntities.TileEntity_CrystalCraftingTable;
+import com.lag.mymanor.tileentities.TileEntity_CrystalCraftingTable;
 
 public class Container_CrystalCraftingTable extends Container{
 	

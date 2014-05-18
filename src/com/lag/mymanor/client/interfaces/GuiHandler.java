@@ -1,7 +1,7 @@
 package com.lag.mymanor.client.interfaces;
 
 import com.lag.mymanor.MyManor;
-import com.lag.mymanor.tileEntities.TileEntity_CrystalCraftingTable;
+import com.lag.mymanor.tileentities.TileEntity_CrystalCraftingTable;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

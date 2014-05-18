@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 import com.lag.mymanor.help.Reference;
 import com.lag.mymanor.init.MBlocks;
-import com.lag.mymanor.tileEntities.TileEntity_S_ConnectedGlass;
+import com.lag.mymanor.tileentities.TileEntity_S_ConnectedGlass;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

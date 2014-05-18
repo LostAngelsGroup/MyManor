@@ -19,8 +19,8 @@ import com.lag.mymanor.itemBlocks.ItemBlock_CrystalOre;
 import com.lag.mymanor.itemBlocks.ItemBlock_CrystalSand;
 import com.lag.mymanor.itemBlocks.ItemBlock_MagicInfuseGround;
 import com.lag.mymanor.itemBlocks.ItemBlock_Ore;
-import com.lag.mymanor.tileEntities.TileEntity_CrystalCraftingTable;
-import com.lag.mymanor.tileEntities.TileEntity_S_ConnectedGlass;
+import com.lag.mymanor.tileentities.TileEntity_CrystalCraftingTable;
+import com.lag.mymanor.tileentities.TileEntity_S_ConnectedGlass;
 
 public class MBlocks {
 	

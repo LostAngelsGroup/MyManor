@@ -1,4 +1,4 @@
-package com.lag.mymanor.tileEntities;
+package com.lag.mymanor.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
