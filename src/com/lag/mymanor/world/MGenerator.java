@@ -58,7 +58,7 @@ public class MGenerator implements IWorldGenerator{
 			if(ConfigHandler.SAND_AND_GLASS_NORMAL_VALUE) spawnCrystalSand(MBlocks.crystalSandNormal, i, world, random, chunkX, chunkZ, 3, 50, 80);
 			if(ConfigHandler.SAND_AND_GLASS_LOW_VALUE) spawnCrystalSand(MBlocks.crystalSandLow, i, world, random, chunkX, chunkZ, 5, 50, 80);
 		}
-		
+		spawnMagicFuel(MBlocks.magicFuel, world, random, chunkX, chunkZ, 10, 20, 80);
 	}
 	public void spawnCrystalSand(Block block, int meta, World world, Random random, int chunkX, int chunkZ, int interations, int minY, int maxY){
 		for(int i = 0; i < interations; i++){
@@ -77,6 +77,15 @@ public class MGenerator implements IWorldGenerator{
 			int posZ = chunkZ + random.nextInt(16);
 			int vainSize = minVainSize + random.nextInt(maxVainSize - minVainSize);
 			new WorldGenMinable(block, meta, vainSize, Blocks.stone).generate(world, random, posX, posY, posZ);
+		}
+	}
+	public void spawnMagicFuel(Block block, World world, Random random, int chunkX, int chunkZ, int interations, int minY, int maxY){
+		for(int i = 0; i < interations; i++){
+			int posX = chunkX + random.nextInt(16);
+			int posY = minY + random.nextInt(maxY - minY);
+			int posZ = chunkZ + random.nextInt(16);
+			int ammount = random.nextInt(6);
+			new MagicFuelGen(block, ammount).generate(world, random, posX, posY, posZ);
 		}
 	}
 }

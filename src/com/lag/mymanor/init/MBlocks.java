@@ -19,6 +19,7 @@ import com.lag.mymanor.itemBlocks.ItemBlock_CrystalOre;
 import com.lag.mymanor.itemBlocks.ItemBlock_CrystalSand;
 import com.lag.mymanor.itemBlocks.ItemBlock_MagicInfuseGround;
 import com.lag.mymanor.itemBlocks.ItemBlock_Ore;
+import com.lag.mymanor.blocks.MagicFuelOre;
 import com.lag.mymanor.tileentities.TileEntity_CrystalCraftingTable;
 import com.lag.mymanor.tileentities.TileEntity_S_ConnectedGlass;
 
@@ -46,6 +47,8 @@ public class MBlocks {
 	public static Block magicInfuseGround;
 	
 	public static Block crystalCraftingTable;
+	
+	public static Block magicFuel;
 	
 	//test
 	public static Block connectedTextureGlass;
@@ -109,6 +112,9 @@ public class MBlocks {
 		
 		crystalCraftingTable = new CrystalCraftingTable("crystal_crafting_table");
 		RegisterHelper.registerBlock(crystalCraftingTable);
+		
+		magicFuel = new MagicFuelOre("magic_fuel_ore");
+		RegisterHelper.registerBlock(magicFuel);
 		
 		//test
 		connectedTextureGlass = new S_ConnectedGlass("s_glass");

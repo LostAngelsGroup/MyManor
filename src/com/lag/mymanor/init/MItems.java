@@ -7,6 +7,7 @@ import com.lag.mymanor.items.Crystal;
 import com.lag.mymanor.items.CrystalDust;
 import com.lag.mymanor.items.CrystalRaw;
 import com.lag.mymanor.items.CrystalRawLarge;
+import com.lag.mymanor.items.MagicFuel;
 import com.lag.mymanor.items.tools.Axe;
 import com.lag.mymanor.items.tools.Hammer;
 import com.lag.mymanor.items.tools.Hoe;
@@ -29,6 +30,8 @@ public class MItems {
 	public static Item crystalNormal;
 	public static Item crystalLarge;
 	public static Item crystalEnormous;
+	
+	public static Item magicFuel;
 	
 	//zatim nepouzity
 	public static Item crystalSmallCombined;
@@ -71,6 +74,9 @@ public class MItems {
 		
 		crystalEnormous = new Crystal("crystal_enormous");
 		RegisterHelper.registerItem(crystalEnormous);
+		
+		magicFuel = new MagicFuel("magic_fuel");
+		RegisterHelper.registerItem(magicFuel);
 	}
 	
 	public static void initTools(){
