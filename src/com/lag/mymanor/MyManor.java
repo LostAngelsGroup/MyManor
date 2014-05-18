@@ -1,6 +1,5 @@
 package com.lag.mymanor;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -36,20 +35,6 @@ public class MyManor {
 	
 	@Instance(value=Reference.MODID)
 	public static MyManor instance;
-	
-	//Creative Tabs
-		//blocks
-	public static CreativeTabs tabMyManorBlocks = new CreativeTabs("tabMyManorBlocks") {
-		public Item getTabIconItem(){
-			return Items.sign;
-		}
-	};
-		//items
-	public static CreativeTabs tabMyManorItems = new CreativeTabs("tabMyManorItems"){
-		public Item getTabIconItem(){
-			return MItems.crystalRawLarge;
-		}
-	};
 	
 	//zatim nepouzity
 	public static Item crystalSmallCombined;

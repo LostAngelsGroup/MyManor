@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.util.IIcon;
 
-import com.lag.mymanor.MyManor;
+import com.lag.mymanor.MyManorCreativeTabs;
 import com.lag.mymanor.help.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -15,7 +15,7 @@ public class Pickaxe extends ItemPickaxe{
 	public Pickaxe(String name, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		setUnlocalizedName(name);
-		setCreativeTab(MyManor.tabMyManorItems);
+		setCreativeTab(MyManorCreativeTabs.tabMyManorItems);
 	}
 	@SideOnly(Side.CLIENT)
 	IIcon[] icons;

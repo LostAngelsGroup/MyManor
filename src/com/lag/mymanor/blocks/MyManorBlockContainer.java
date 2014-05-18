@@ -5,13 +5,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import com.lag.mymanor.MyManor;
+import com.lag.mymanor.MyManorCreativeTabs;
 
 public class MyManorBlockContainer extends BlockContainer{
 	public MyManorBlockContainer(String name, Material material){
 		super(material);
 		setBlockName(name);
-		setCreativeTab(MyManor.tabMyManorBlocks);
+		setCreativeTab(MyManorCreativeTabs.tabMyManorBlocks);
 	}
 
 	public TileEntity createNewTileEntity(World var1, int var2) {

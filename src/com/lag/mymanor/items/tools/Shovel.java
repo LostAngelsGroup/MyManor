@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.util.IIcon;
 
-import com.lag.mymanor.MyManor;
+import com.lag.mymanor.MyManorCreativeTabs;
 import com.lag.mymanor.help.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -15,7 +15,7 @@ public class Shovel extends ItemSpade{
 	public Shovel(String name, ToolMaterial toolMaterial) {
 		super(toolMaterial);
 		setUnlocalizedName(name);
-		setCreativeTab(MyManor.tabMyManorItems);
+		setCreativeTab(MyManorCreativeTabs.tabMyManorItems);
 	}
 	@SideOnly(Side.CLIENT)
 	IIcon[] icons;

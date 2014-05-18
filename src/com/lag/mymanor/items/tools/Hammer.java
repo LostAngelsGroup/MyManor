@@ -2,14 +2,15 @@ package com.lag.mymanor.items.tools;
 
 import java.util.Set;
 
-import com.lag.mymanor.MyManor;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.ItemTool;
+import net.minecraft.util.IIcon;
+
+import com.lag.mymanor.MyManorCreativeTabs;
 import com.lag.mymanor.help.Reference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemTool;
-import net.minecraft.util.IIcon;
 
 public class Hammer extends ItemTool{
 
@@ -18,7 +19,7 @@ public class Hammer extends ItemTool{
 			Set p_i45333_3_) {
 		super(p_i45333_1_, p_i45333_2_, p_i45333_3_);
 		setUnlocalizedName(name);
-		setCreativeTab(MyManor.tabMyManorItems);
+		setCreativeTab(MyManorCreativeTabs.tabMyManorItems);
 	}
 	@SideOnly(Side.CLIENT)
 	IIcon[] icons;

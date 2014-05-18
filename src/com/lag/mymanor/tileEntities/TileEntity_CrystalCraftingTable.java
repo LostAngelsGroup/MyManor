@@ -44,7 +44,6 @@ public class TileEntity_CrystalCraftingTable extends TileEntity implements IInve
 		super.readFromNBT(compound);
 		
 		NBTTagList items = compound.getTagList("items", NBT.TAG_COMPOUND);
-		System.out.println(items.tagCount());//test
 		for (int i = 0; i < items.tagCount(); i++){
 			NBTTagCompound item = items.getCompoundTagAt(i);
 			int slot = item.getByte("slot");
