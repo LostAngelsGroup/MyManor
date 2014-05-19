@@ -16,28 +16,83 @@ public class MagicFuelGen extends WorldGenerator{
 		this.block = block;
 		this.ammount = ammount;
 	}
+	
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
-		generateNext(world, rand, x, y, z);
+		generateNextLayer(world, rand, x, y, z, rand.nextInt(4));
 		return true;
 	}
-	public void generateNext(World world, Random rand, int x, int y, int z){
+	
+	public void generateNextLayer(World world, Random rand, int x, int y, int z, int direction){
 		if(ammount > 0 && world.getBlock(x, y, z) == Blocks.stone){
-			world.setBlock(x, y, z, block);
+			switch(direction){
+			case 0:
+				switch(rand.nextInt(3)){
+					case 0: 
+						world.setBlock(x + 1, y, z, block);
+						break;
+					case 1:
+						world.setBlock(x, y, z, block);
+						break;
+					case 2:
+						world.setBlock(x, y, z + 1, block);
+						break;
+				}
+				break;
+			case 1:
+				switch(rand.nextInt(3)){
+					case 0: 
+						world.setBlock(x - 1, y, z, block);
+						break;
+					case 1:
+						world.setBlock(x, y, z, block);
+						break;
+					case 2:
+						world.setBlock(x, y, z + 1, block);
+						break;
+				}
+			break;
+			case 2:
+				switch(rand.nextInt(3)){
+					case 0: 
+						world.setBlock(x - 1, y, z, block);
+						break;
+					case 1:
+						world.setBlock(x, y, z, block);
+						break;
+					case 2:
+						world.setBlock(x, y, z - 1, block);
+						break;
+				}
+				break;
+			case 3:
+				switch(rand.nextInt(3)){
+					case 0: 
+						world.setBlock(x + 1, y, z, block);
+						break;
+					case 1:
+						world.setBlock(x, y, z, block);
+						break;
+					case 2:
+						world.setBlock(x, y, z - 1, block);
+						break;
+				}
+				break;
+			default:
+				world.setBlock(x, y, z, block);
+				break;
+			}
+
 			ammount--;
 			
-			switch(rand.nextInt(8)){
-			case 0: generateNext(world, rand, x - 1, y + 1, z - 1);
-			case 1: generateNext(world, rand, x, y + 1, z - 1);
-			case 2: generateNext(world, rand, x + 1, y + 1, z - 1);
-			case 3: generateNext(world, rand, x - 1, y + 1, z);
-			case 4: generateNext(world, rand, x + 1, y + 1, z);
-			case 5: generateNext(world, rand, x - 1, y + 1, z + 1);
-			case 6: generateNext(world, rand, x, y + 1, z + 1);
-			case 7: generateNext(world, rand, x + 1, y + 1, z + 1);
+			switch(direction){
+			case 0: generateNextLayer(world, rand, x - 1, y + 1, z - 1, direction);
+			case 1: generateNextLayer(world, rand, x + 1, y + 1, z - 1, direction);
+			case 2: generateNextLayer(world, rand, x + 1, y + 1, z + 1, direction);
+			case 3: generateNextLayer(world, rand, x - 1, y + 1, z + 1, direction);
+			default: generateNextLayer(world, rand, x, y + 1, z, direction);
 			}
-			
 		}
-		return;
 	}
+	
 }

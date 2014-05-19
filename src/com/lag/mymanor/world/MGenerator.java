@@ -84,7 +84,7 @@ public class MGenerator implements IWorldGenerator{
 			int posX = chunkX + random.nextInt(16);
 			int posY = minY + random.nextInt(maxY - minY);
 			int posZ = chunkZ + random.nextInt(16);
-			int ammount = random.nextInt(6);
+			int ammount =  2 + random.nextInt(4);
 			new MagicFuelGen(block, ammount).generate(world, random, posX, posY, posZ);
 		}
 	}
