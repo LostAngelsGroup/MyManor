@@ -1,10 +1,10 @@
 package com.lag.mymanor;
 
-import com.lag.mymanor.init.MBlocks;
-import com.lag.mymanor.init.MItems;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+import com.lag.mymanor.magic.init.MBlocks;
+import com.lag.mymanor.magic.init.MItems;
 
 public abstract class MyManorCreativeTabs extends CreativeTabs{
 	public MyManorCreativeTabs(String lable) {
