@@ -4,36 +4,60 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import com.lag.mymanor.core.util.GuiHelper;
 import com.lag.mymanor.magic.containers.Container_CrystalCraftingTable;
+import com.lag.mymanor.magic.containers.Container_EnergyGenerator;
 import com.lag.mymanor.magic.guis.Gui_CrystalCraftingTable;
+import com.lag.mymanor.magic.guis.Gui_EnergyGenerator;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
+import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler{
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		switch (ID){
-			case 0:{
-				TileEntity tileentity = world.getTileEntity(x, y, z);
-				if( tileentity != null && tileentity instanceof TileEntity_CrystalCraftingTable){
-					return new Container_CrystalCraftingTable(player.inventory, (TileEntity_CrystalCraftingTable)tileentity);
+		TileEntity tileentity = world.getTileEntity(x, y, z);
+		if(tileentity != null){
+			switch (ID){
+				case GuiHelper.guiID_Crystal_crafting_table:{
+					if(tileentity instanceof TileEntity_CrystalCraftingTable){
+						return new Container_CrystalCraftingTable(player.inventory, (TileEntity_CrystalCraftingTable)tileentity);
+					}
+					break;
 				}
-				break;
+				case GuiHelper.guiID_Energy_generator:{
+					if(tileentity instanceof Tileentity_MagicEnergyGenerator){
+						return new Container_EnergyGenerator(player.inventory, (Tileentity_MagicEnergyGenerator)tileentity);
+					}
+					break;
+				}
+				
 			}
 		}
+		
 		return null;
 	}
 
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		switch (ID) {
-			case 0:{
-				TileEntity tileentity = world.getTileEntity(x, y, z);
-				if( tileentity != null && tileentity instanceof TileEntity_CrystalCraftingTable){
-					return new Gui_CrystalCraftingTable(player.inventory, (TileEntity_CrystalCraftingTable)tileentity);
+		TileEntity tileentity = world.getTileEntity(x, y, z);
+		if(tileentity != null){
+			switch (ID) {
+				case GuiHelper.guiID_Crystal_crafting_table:{
+					if(tileentity instanceof TileEntity_CrystalCraftingTable){
+						return new Gui_CrystalCraftingTable(player.inventory, (TileEntity_CrystalCraftingTable)tileentity);
+					}
+					break;
 				}
-				break;
+				case GuiHelper.guiID_Energy_generator:{
+					if(tileentity instanceof Tileentity_MagicEnergyGenerator){
+						return new Gui_EnergyGenerator(player.inventory, (Tileentity_MagicEnergyGenerator)tileentity);
+					}
+					break;
+				}
+				
 			}
 		}
+		
 		return null;
 	}
 

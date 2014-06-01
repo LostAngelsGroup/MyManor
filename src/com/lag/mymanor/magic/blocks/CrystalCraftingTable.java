@@ -10,8 +10,10 @@ import net.minecraft.world.World;
 import com.lag.mymanor.MyManor;
 import com.lag.mymanor.Reference;
 import com.lag.mymanor.core.blocks.MyManorBlockContainer;
+import com.lag.mymanor.core.util.GuiHelper;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -50,12 +52,11 @@ public class CrystalCraftingTable extends MyManorBlockContainer{
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TileEntity_CrystalCraftingTable();
 	}
+	
 	@Override
-	public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
-    {
-		//server side only
-		if(!p_149727_1_.isRemote){
-			p_149727_5_.openGui(MyManor.instance, 0, p_149727_1_, p_149727_2_, p_149727_3_, p_149727_4_);
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ){
+		if(!world.isRemote){
+			FMLNetworkHandler.openGui(player, MyManor.instance, GuiHelper.guiID_Crystal_crafting_table, world, x, y, z);
 		}
         return true;
     }

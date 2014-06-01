@@ -28,7 +28,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MODID, version = Reference.VERSION)
 public class MyManor {
 	
-	@Instance(value=Reference.MODID)
+	@Instance
 	public static MyManor instance;
 	
 	@SuppressWarnings("static-access")
@@ -50,7 +50,7 @@ public class MyManor {
 		//TItems?
 		
 		//tools
-		//CTools
+		//CTools?
 		MItems.initMagicTools();
 		//TTools?
 		

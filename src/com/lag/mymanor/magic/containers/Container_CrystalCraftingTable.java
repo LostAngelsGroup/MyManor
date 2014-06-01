@@ -6,8 +6,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.lag.mymanor.core.guis.slots.SlotCrystalRaw;
-import com.lag.mymanor.core.guis.slots.SlotNothing;
+import com.lag.mymanor.core.guis.slots.Slot_CrystalRaw;
+import com.lag.mymanor.core.guis.slots.Slot_Nothing;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
 
 public class Container_CrystalCraftingTable extends Container{
@@ -30,7 +30,7 @@ public class Container_CrystalCraftingTable extends Container{
 		}
 		//machine
 		//crystal slot
-		addSlotToContainer(new SlotCrystalRaw(table, 0, 59, 29));
+		addSlotToContainer(new Slot_CrystalRaw(table, 0, 59, 29));
 		//tool slot
 		for(int y = 0; y < 3; y++){
 			addSlotToContainer(new Slot(table, y + 1, 20, y * 18 + 9 + y * 2));
@@ -38,7 +38,7 @@ public class Container_CrystalCraftingTable extends Container{
 		//inventory
 		for(int y = 0; y < 2; y++){
 			for(int x = 0; x < 3; x++){
-				addSlotToContainer(new SlotNothing(table, x + y * 3 + 4, 18 * x + 101, y * 18 + 21));
+				addSlotToContainer(new Slot_Nothing(table, x + y * 3 + 4, 18 * x + 101, y * 18 + 21));
 			}
 		}
 	}

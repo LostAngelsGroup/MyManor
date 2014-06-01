@@ -7,6 +7,8 @@ import com.lag.mymanor.magic.items.Crystal;
 import com.lag.mymanor.magic.items.CrystalDust;
 import com.lag.mymanor.magic.items.CrystalRaw;
 import com.lag.mymanor.magic.items.CrystalRawLarge;
+import com.lag.mymanor.magic.items.Item_EnergyCrystal;
+import com.lag.mymanor.magic.items.Item_Upgrade;
 import com.lag.mymanor.magic.items.MagicFuel;
 import com.lag.mymanor.magic.items.tools.Axe;
 import com.lag.mymanor.magic.items.tools.Hammer;
@@ -48,6 +50,22 @@ public class MItems {
 	public static Item crystalShovel;
 	public static Item crystalHoe;
 	
+	//upgrades
+	public static Item upgrade_range;
+	public static Item upgrade_transfer;
+	public static Item upgrade_extract;
+	public static Item upgrade_number;
+	public static Item upgrade_capacity;
+	public static Item upgrade_speed;
+	
+	//energy_crystals
+	public static Item energy_crystal_AIR;
+	public static Item energy_crystal_DARKNESS;
+	public static Item energy_crystal_EARTH;
+	public static Item energy_crystal_FIRE;
+	public static Item energy_crystal_LIGHT;
+	public static Item energy_crystal_WATER;
+	
 	public static void initMagicItems(){
 		
 		crystalDust = new CrystalDust("crystal_dust");
@@ -76,6 +94,34 @@ public class MItems {
 		
 		magicFuel = new MagicFuel("magic_fuel");
 		RegisterHelper.registerItem(magicFuel);
+		
+		//upgrades
+		upgrade_capacity = new Item_Upgrade("upgrade_capacity");
+		RegisterHelper.registerItem(upgrade_capacity);
+		upgrade_extract = new Item_Upgrade("upgrade_extract");
+		RegisterHelper.registerItem(upgrade_extract);
+		upgrade_number = new Item_Upgrade("upgrade_number");
+		RegisterHelper.registerItem(upgrade_number);
+		upgrade_range = new Item_Upgrade("upgrade_range");
+		RegisterHelper.registerItem(upgrade_range);
+		upgrade_speed = new Item_Upgrade("upgrade_speed");
+		RegisterHelper.registerItem(upgrade_speed);
+		upgrade_transfer = new Item_Upgrade("upgrade_transfer");
+		RegisterHelper.registerItem(upgrade_transfer);
+		
+		//energy_crystals
+		energy_crystal_AIR = new Item_EnergyCrystal("energy_crystal_AIR");
+		RegisterHelper.registerItem(energy_crystal_AIR);
+		energy_crystal_DARKNESS = new Item_EnergyCrystal("energy_crystal_DARKNESS");
+		RegisterHelper.registerItem(energy_crystal_DARKNESS);
+		energy_crystal_EARTH = new Item_EnergyCrystal("energy_crystal_EARTH");
+		RegisterHelper.registerItem(energy_crystal_EARTH);
+		energy_crystal_FIRE = new Item_EnergyCrystal("energy_crystal_FIRE");
+		RegisterHelper.registerItem(energy_crystal_FIRE);
+		energy_crystal_LIGHT = new Item_EnergyCrystal("energy_crystal_LIGHT");
+		RegisterHelper.registerItem(energy_crystal_LIGHT);
+		energy_crystal_WATER = new Item_EnergyCrystal("energy_crystal_WATER");
+		RegisterHelper.registerItem(energy_crystal_WATER);
 	}
 	
 	public static void initMagicTools(){
