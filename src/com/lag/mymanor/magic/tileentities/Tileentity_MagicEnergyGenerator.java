@@ -21,13 +21,14 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 	private int maxEnergyStored;
 	
 	public Tileentity_MagicEnergyGenerator(){
+		energyStored = 0;
 		maxEnergyStored = 10000;
 	}
 	
 	@Override
 	public void updateEntity(){
 		if (energyStored < maxEnergyStored){
-			generateEnergy();
+			//generateEnergy();
 		}
 	}
 	

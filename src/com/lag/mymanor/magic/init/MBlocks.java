@@ -1,8 +1,10 @@
 package com.lag.mymanor.magic.init;
 
+import net.minecraft.block.Block;
+
 import com.lag.mymanor.core.handlers.ConfigHandler;
 import com.lag.mymanor.core.util.RegisterHelper;
-import com.lag.mymanor.magic.blocks.Block_EnergyExtractor;
+import com.lag.mymanor.magic.blocks.Block_MagicEnergyGenerator;
 import com.lag.mymanor.magic.blocks.Block_NatureBattery;
 import com.lag.mymanor.magic.blocks.Block_NatureBatteryDepleted;
 import com.lag.mymanor.magic.blocks.CrystalBlock;
@@ -21,8 +23,6 @@ import com.lag.mymanor.magic.itemBlocks.ItemBlock_MagicInfuseGround;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
 import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
 import com.lag.mymanor.magic.tileentities.Tileentity_NatureBattery;
-
-import net.minecraft.block.Block;
 
 public class MBlocks {
 	
@@ -121,7 +121,7 @@ public class MBlocks {
 		magicFuel = new MagicFuelOre("magic_fuel_ore");
 		RegisterHelper.registerBlock(magicFuel);
 		
-		block_energyGenarator = new Block_EnergyExtractor("energy_generator");
+		block_energyGenarator = new Block_MagicEnergyGenerator("magic_energy_generator");
 		RegisterHelper.registerBlock(block_energyGenarator);
 		
 	}
