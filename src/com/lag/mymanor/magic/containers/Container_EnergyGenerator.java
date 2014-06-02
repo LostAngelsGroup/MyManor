@@ -4,15 +4,20 @@ import com.lag.mymanor.core.guis.slots.Slot_EnergyCrystal;
 import com.lag.mymanor.core.guis.slots.Slot_Upgrade;
 import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class Container_EnergyGenerator extends Container{
 	
 	private Tileentity_MagicEnergyGenerator tileentity;
+	
+	private int lastEnergyStored;
 	
 	public Container_EnergyGenerator(InventoryPlayer inventoryPlayer, Tileentity_MagicEnergyGenerator tileentity){
 		this.tileentity = tileentity;
@@ -40,6 +45,36 @@ public class Container_EnergyGenerator extends Container{
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return tileentity.isUseableByPlayer(player);
+	}
+	
+	@Override
+	public void addCraftingToCrafters (ICrafting icrafting){
+		super.addCraftingToCrafters(icrafting);
+		
+		icrafting.sendProgressBarUpdate(this, 0, this.tileentity.getEnergyStored());
+	}
+	
+	@Override
+	public void detectAndSendChanges(){
+		super.detectAndSendChanges();
+		
+		for(int i = 0; i < this.crafters.size(); i++){
+			ICrafting icrafting = (ICrafting) this.crafters.get(i);
+			
+			if(this.lastEnergyStored != this.tileentity.getEnergyStored()){
+				icrafting.sendProgressBarUpdate(this, 0, this.tileentity.getEnergyStored());
+			}
+			
+			this.lastEnergyStored = this.tileentity.getEnergyStored();
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void updateProgressBar(int par1, int par2){
+		if(par1 == 0){
+			this.tileentity.setEnergyStored(par2);
+		}
 	}
 	
 	@Override //INFO: resi chybu s Shift + Click - zakazuje ho TODO: napsat transfer Stack

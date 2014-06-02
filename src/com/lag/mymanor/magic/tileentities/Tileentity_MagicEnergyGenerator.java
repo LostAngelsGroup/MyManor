@@ -2,6 +2,7 @@ package com.lag.mymanor.magic.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -10,6 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import com.lag.mymanor.core.interfaces.IInfo;
 import com.lag.mymanor.magic.init.MItems;
 import com.lag.mymanor.magic.interfaces.IMagicEnergyStorage;
+import com.lag.mymanor.magic.items.ItemHelper_Upgrade;
 import com.lag.mymanor.magic.items.Item_EnergyCrystal;
 import com.lag.mymanor.magic.items.Item_Upgrade;
 
@@ -17,29 +19,102 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 
 	private ItemStack[] slots = new ItemStack[4];
 	
+	private static final int MAX_ENERGY_STORED_BASE = 10000;
+	private static final int RANGE_BASE = 5;
+	private static final int UPDATE_TIME_BASE = 250;
+	
 	private int energyStored;
 	private int maxEnergyStored;
 	
+	private int range;
+	
+	private int updateTime;
+	
 	public Tileentity_MagicEnergyGenerator(){
 		energyStored = 0;
-		maxEnergyStored = 10000;
+		maxEnergyStored = MAX_ENERGY_STORED_BASE;
+		range = RANGE_BASE;
+		updateTime = UPDATE_TIME_BASE;
 	}
 	
 	@Override
 	public void updateEntity(){
-		if (energyStored < maxEnergyStored){
-			//generateEnergy();
+		
+		if(updateTime <= 0){
+			System.out.println("It is update time");
+			
+			recalculateUpgrades();
+			
+			
+			if (energyStored < maxEnergyStored && slots[0] != null){
+				generateEnergy(true);
+			}
+			
+			updateTime = 100;
+		}else{
+			if (energyStored < maxEnergyStored && slots[0] != null){
+				generateEnergy(false);
+			}
+			updateTime--;
 		}
+		
 	}
 	
-	private void generateEnergy() {
+	private void recalculateUpgrades(){
+		maxEnergyStored = MAX_ENERGY_STORED_BASE + getNumberOfUpgrades(MItems.upgrade_capacity) * ItemHelper_Upgrade.upgrade_capacity;
+		range = RANGE_BASE + getNumberOfUpgrades(MItems.upgrade_range) * ItemHelper_Upgrade.upgrade_range;
+		//TODO: add another if needed
+	}
+	
+	private int getNumberOfUpgrades(Item upgrade){
+		int ret = 0;
+		
+		for(int i = 0; i < getSizeInventory(); i++){
+			if(slots[i] != null){
+				ItemStack stack = getStackInSlot(i);
+				
+				System.out.println(stack.getItem().getUnlocalizedName().substring(5));
+				
+				if(stack.getItem() == upgrade){
+					ret += stack.stackSize;
+				}
+			}
+		}
+		System.out.println(ret);
+		return ret;
+	}
+	
+	private void generateEnergy(boolean needUpdate) {
 		// TODO Auto-generated method stub
 		if(slots[0].getItem() == MItems.energy_crystal_AIR){
+			energyStored += 5;
+			/*
+			int height;
+			int numberOfBlocksAround;
+			
+			if(needUpdate){
+				height = this.yCoord;
+				//numberOfBlocksAround = getBlocksAround(Blocks.air);
+				
+			}
+			
+			//do staff
+			
+			*/
+		}else if(slots[0].getItem() == MItems.energy_crystal_WATER){
 			
 		}
 		
 	}
-
+	
+	public void setEnergyStored(int value){
+		this.energyStored = value;
+	}
+	
+	public int getEnergyStoredScaled(int value){
+		return energyStored * value / maxEnergyStored;
+	}
+	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt){
 		super.readFromNBT(nbt);
@@ -59,6 +134,8 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 
 		this.energyStored = nbt.getInteger("EnergyStored");
 		this.maxEnergyStored = nbt.getInteger("MaxEnergyStored");
+		
+		this.updateTime = nbt.getInteger("UpdateTime");
 	}
 	
 	@Override
@@ -67,6 +144,8 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 		
 		nbt.setInteger("EnergyStored", energyStored);
 		nbt.setInteger("MaxEnergyStored", maxEnergyStored);
+		
+		nbt.setInteger("UpdateTime", updateTime);
 		
 		NBTTagList list = new NBTTagList();
 		
@@ -91,6 +170,11 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 	}
 
 	public ItemStack decrStackSize(int slot, int ammount) {
+		//nelze vyndat energy crystal
+		if(slot == 0){
+			return null;
+		}
+		
 		if(this.slots[slot] != null){
 			ItemStack stack;
 			
@@ -120,7 +204,9 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 		return null;
 	}
 
+	//FIXME: zamkni vkladani do slotu 0 pokud jiz neco obsahuje
 	public void setInventorySlotContents(int slot, ItemStack stack) {
+		
 		this.slots[slot] = stack;
 
 		if(stack != null && stack.stackSize > this.getInventoryStackLimit()){
@@ -137,7 +223,7 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 	}
 
 	public int getInventoryStackLimit() {
-		return 1;
+		return 4;
 	}
 
 	public boolean isUseableByPlayer(EntityPlayer player) {
@@ -162,7 +248,7 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 		return str;
 	}
 
-	/*ImagicEnergyStorage*/
+	/*IMagicEnergyStorage*/
 	public int receiveEnergy(int maxReceive, boolean simulate) {
 		return 0;
 	}

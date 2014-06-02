@@ -32,7 +32,6 @@ public class Block_MagicEnergyGenerator extends BlockContainer{
 	}
 	
 	public TileEntity createNewTileEntity(World world, int var2){
-		System.out.println("Tileentity_MagicEnergyGenerator created"); //testovaci - nedojde k zavolani???
 		return new Tileentity_MagicEnergyGenerator();
 	}
 	

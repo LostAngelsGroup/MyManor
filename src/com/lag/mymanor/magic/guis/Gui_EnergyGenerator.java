@@ -10,12 +10,17 @@ import net.minecraft.util.ResourceLocation;
 
 import com.lag.mymanor.Reference;
 import com.lag.mymanor.magic.containers.Container_EnergyGenerator;
+import com.lag.mymanor.magic.init.MItems;
 import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
 
 public class Gui_EnergyGenerator extends GuiContainer{
+	
+	private Tileentity_MagicEnergyGenerator tileentity;
 
 	public Gui_EnergyGenerator(InventoryPlayer inventoryPlayer, Tileentity_MagicEnergyGenerator tileentity_MagicEnergyGenerator) {
 		super(new Container_EnergyGenerator(inventoryPlayer, tileentity_MagicEnergyGenerator));
+		
+		this.tileentity = tileentity_MagicEnergyGenerator;
 		
 		xSize = 176;
 		ySize = 166;
@@ -29,6 +34,31 @@ public class Gui_EnergyGenerator extends GuiContainer{
 		
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		
+		
+		if(tileentity.getStackInSlot(0) != null){
+			int i = tileentity.getEnergyStoredScaled(62);
+			
+			int barPositionX = 0;
+			int barPositionY = 0;
+			
+			if(tileentity.getStackInSlot(0).getItem() == MItems.energy_crystal_AIR){
+				barPositionX = 176;
+				barPositionY = 62;
+			}else if(tileentity.getStackInSlot(0).getItem() == MItems.energy_crystal_DARKNESS){
+				barPositionX = 176;
+			}else if(tileentity.getStackInSlot(0).getItem() == MItems.energy_crystal_EARTH){
+				barPositionX = 224;
+			}else if(tileentity.getStackInSlot(0).getItem() == MItems.energy_crystal_FIRE){
+				barPositionX = 208;
+			}else if(tileentity.getStackInSlot(0).getItem() == MItems.energy_crystal_LIGHT){
+				barPositionX = 192;
+			}else{
+				barPositionX = 240;
+			}
+			
+			drawTexturedModalRect(guiLeft + 152, guiTop + 8 + 62 - i, barPositionX, barPositionY, 16, i);
+		}
 	}
 	
 	@Override

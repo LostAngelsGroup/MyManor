@@ -20,4 +20,8 @@ public class Slot_EnergyCrystal extends Slot{
 		return false;
 	}
 
+	@Override
+	public int getSlotStackLimit(){
+		return 1;
+	}
 }
