@@ -21,19 +21,24 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 	
 	private static final int MAX_ENERGY_STORED_BASE = 10000;
 	private static final int RANGE_BASE = 5;
+	private static final int EXTRACT_SPEED_BASE = 1;
 	private static final int UPDATE_TIME_BASE = 250;
 	
 	private int energyStored;
 	private int maxEnergyStored;
 	
 	private int range;
+	private double extractSpeed;
 	
 	private int updateTime;
 	
 	public Tileentity_MagicEnergyGenerator(){
 		energyStored = 0;
 		maxEnergyStored = MAX_ENERGY_STORED_BASE;
+		
 		range = RANGE_BASE;
+		extractSpeed = EXTRACT_SPEED_BASE;
+		
 		updateTime = UPDATE_TIME_BASE;
 	}
 	
@@ -61,8 +66,9 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 	}
 	
 	private void recalculateUpgrades(){
-		maxEnergyStored = MAX_ENERGY_STORED_BASE + getNumberOfUpgrades(MItems.upgrade_capacity) * ItemHelper_Upgrade.upgrade_capacity;
-		range = RANGE_BASE + getNumberOfUpgrades(MItems.upgrade_range) * ItemHelper_Upgrade.upgrade_range;
+		maxEnergyStored = MAX_ENERGY_STORED_BASE + getNumberOfUpgrades(MItems.upgrade_capacity) * ItemHelper_Upgrade.upgrade_capacity_energyGenerator;
+		range = RANGE_BASE + getNumberOfUpgrades(MItems.upgrade_range) * ItemHelper_Upgrade.upgrade_range_energyGenerator;
+		extractSpeed = EXTRACT_SPEED_BASE + getNumberOfUpgrades(MItems.upgrade_extract) * ItemHelper_Upgrade.upgrade_extract_energyGenerator;
 		//TODO: add another if needed
 	}
 	
@@ -80,7 +86,6 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 				}
 			}
 		}
-		System.out.println(ret);
 		return ret;
 	}
 	
@@ -135,6 +140,9 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 		this.energyStored = nbt.getInteger("EnergyStored");
 		this.maxEnergyStored = nbt.getInteger("MaxEnergyStored");
 		
+		this.range = nbt.getInteger("Range");
+		this.extractSpeed = nbt.getDouble("ExtractSpeed");
+		
 		this.updateTime = nbt.getInteger("UpdateTime");
 	}
 	
@@ -144,6 +152,9 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 		
 		nbt.setInteger("EnergyStored", energyStored);
 		nbt.setInteger("MaxEnergyStored", maxEnergyStored);
+		
+		nbt.setInteger("Range", range);
+		nbt.setDouble("ExtractSpeed", extractSpeed);
 		
 		nbt.setInteger("UpdateTime", updateTime);
 		
