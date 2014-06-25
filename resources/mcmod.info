@@ -1,6 +1,6 @@
 [
 {
-  "modid": "mymanor",
+  "modid": "lag_mymanor",
   "name": "MyManor Mod",
   "description": "Where Magic & Technology connect their powers...",
   "version": "${version}",
