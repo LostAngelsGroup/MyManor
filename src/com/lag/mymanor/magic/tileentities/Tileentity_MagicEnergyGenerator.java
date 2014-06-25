@@ -79,8 +79,6 @@ public class Tileentity_MagicEnergyGenerator extends TileEntity implements IInfo
 			if(slots[i] != null){
 				ItemStack stack = getStackInSlot(i);
 				
-				System.out.println(stack.getItem().getUnlocalizedName().substring(5));
-				
 				if(stack.getItem() == upgrade){
 					ret += stack.stackSize;
 				}

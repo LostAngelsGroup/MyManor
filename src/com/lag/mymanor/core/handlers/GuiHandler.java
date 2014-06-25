@@ -7,10 +7,13 @@ import net.minecraft.world.World;
 import com.lag.mymanor.core.util.GuiHelper;
 import com.lag.mymanor.magic.containers.Container_CrystalCraftingTable;
 import com.lag.mymanor.magic.containers.Container_EnergyGenerator;
+import com.lag.mymanor.magic.containers.Container_EnergyTransferer;
 import com.lag.mymanor.magic.guis.Gui_CrystalCraftingTable;
 import com.lag.mymanor.magic.guis.Gui_EnergyGenerator;
+import com.lag.mymanor.magic.guis.Gui_EnergyTransferer;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
 import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
+import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyTransferer;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -28,6 +31,12 @@ public class GuiHandler implements IGuiHandler{
 				case GuiHelper.guiID_Energy_generator:{
 					if(tileentity instanceof Tileentity_MagicEnergyGenerator){
 						return new Container_EnergyGenerator(player.inventory, (Tileentity_MagicEnergyGenerator)tileentity);
+					}
+					break;
+				}
+				case GuiHelper.guiID_Energy_transferer:{
+					if(tileentity instanceof Tileentity_MagicEnergyTransferer){
+						return new Container_EnergyTransferer(player.inventory, (Tileentity_MagicEnergyTransferer)tileentity);
 					}
 					break;
 				}
@@ -51,6 +60,12 @@ public class GuiHandler implements IGuiHandler{
 				case GuiHelper.guiID_Energy_generator:{
 					if(tileentity instanceof Tileentity_MagicEnergyGenerator){
 						return new Gui_EnergyGenerator(player.inventory, (Tileentity_MagicEnergyGenerator)tileentity);
+					}
+					break;
+				}
+				case GuiHelper.guiID_Energy_transferer:{
+					if(tileentity instanceof Tileentity_MagicEnergyTransferer){
+						return new Gui_EnergyTransferer(player.inventory, (Tileentity_MagicEnergyTransferer)tileentity);
 					}
 					break;
 				}

@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import com.lag.mymanor.core.handlers.ConfigHandler;
 import com.lag.mymanor.core.util.RegisterHelper;
 import com.lag.mymanor.magic.blocks.Block_MagicEnergyGenerator;
+import com.lag.mymanor.magic.blocks.Block_MagicEnergyTransferer;
 import com.lag.mymanor.magic.blocks.Block_NatureBattery;
 import com.lag.mymanor.magic.blocks.Block_NatureBatteryDepleted;
 import com.lag.mymanor.magic.blocks.CrystalBlock;
@@ -22,6 +23,7 @@ import com.lag.mymanor.magic.itemBlocks.ItemBlock_CrystalSand;
 import com.lag.mymanor.magic.itemBlocks.ItemBlock_MagicInfuseGround;
 import com.lag.mymanor.magic.tileentities.TileEntity_CrystalCraftingTable;
 import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyGenerator;
+import com.lag.mymanor.magic.tileentities.Tileentity_MagicEnergyTransferer;
 import com.lag.mymanor.magic.tileentities.Tileentity_NatureBattery;
 
 public class MBlocks {
@@ -54,6 +56,7 @@ public class MBlocks {
 	public static Block magicFuel;
 	
 	public static Block block_energyGenarator;
+	public static Block block_energyTransferer;
 	
 	public static void initMagicBlocks(){
 		
@@ -124,12 +127,16 @@ public class MBlocks {
 		block_energyGenarator = new Block_MagicEnergyGenerator("magic_energy_generator");
 		RegisterHelper.registerBlock(block_energyGenarator);
 		
+		block_energyTransferer = new Block_MagicEnergyTransferer("magic_energy_transferer");
+		RegisterHelper.registerBlock(block_energyTransferer);
+		
 	}
 	
 	public static void initMagicTileentities(){
 		RegisterHelper.registerTileEntity("tileentity_nature_battery", Tileentity_NatureBattery.class);
 		RegisterHelper.registerTileEntity("tileentity_crystal_crafting_table", TileEntity_CrystalCraftingTable.class);
 		RegisterHelper.registerTileEntity("tileentity_magic_energy_generator", Tileentity_MagicEnergyGenerator.class);
+		RegisterHelper.registerTileEntity("tileentity_magic_energy_transferer", Tileentity_MagicEnergyTransferer.class);
 		
 	}
 }

@@ -7,6 +7,7 @@ import com.lag.mymanor.magic.items.Crystal;
 import com.lag.mymanor.magic.items.CrystalDust;
 import com.lag.mymanor.magic.items.CrystalRaw;
 import com.lag.mymanor.magic.items.CrystalRawLarge;
+import com.lag.mymanor.magic.items.Item_EnergyConnector;
 import com.lag.mymanor.magic.items.Item_EnergyCrystal;
 import com.lag.mymanor.magic.items.Item_Upgrade;
 import com.lag.mymanor.magic.items.MagicFuel;
@@ -66,6 +67,9 @@ public class MItems {
 	public static Item energy_crystal_LIGHT;
 	public static Item energy_crystal_WATER;
 	
+	//
+	public static Item item_connector;
+	
 	public static void initMagicItems(){
 		
 		crystalDust = new CrystalDust("crystal_dust");
@@ -122,6 +126,10 @@ public class MItems {
 		RegisterHelper.registerItem(energy_crystal_LIGHT);
 		energy_crystal_WATER = new Item_EnergyCrystal("energy_crystal_WATER");
 		RegisterHelper.registerItem(energy_crystal_WATER);
+		
+		//
+		item_connector = new Item_EnergyConnector("energy_connector");
+		RegisterHelper.registerItem(item_connector);
 	}
 	
 	public static void initMagicTools(){
