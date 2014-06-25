@@ -89,5 +89,4 @@ public class MyManor {
     public void postInit(FMLPostInitializationEvent event){
     	
     }
-    
 }
